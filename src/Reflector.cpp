@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string.h>
 
-Reflector::Reflector(std::string wiring) {
-    this->left = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+Reflector::Reflector(std::string wiring)
+    :   left("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
 
     if (wiring == "A") {
         this->right = "EJMZALYXVBWFCRQUONTSPIKHGD";

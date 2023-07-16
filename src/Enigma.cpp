@@ -2,9 +2,10 @@
 #include <iostream>
 #include <string.h>
 
-Enigma::Enigma(std::string rotorWiring, std::string reflectorWiring) {
-    this->rotor = Rotor(rotorWiring, 0, 0);
-    this->reflector = Reflector(reflectorWiring);
+Enigma::Enigma(std::string rotorWiring, std::string reflectorWiring)
+    :   rotor(Rotor(rotorWiring, 0, 0)),
+        reflector(Reflector(reflectorWiring)) {
+            
 }
 
 std::string Enigma::encode(std::string message) {

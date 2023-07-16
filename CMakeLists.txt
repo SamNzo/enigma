@@ -5,10 +5,10 @@ set(CMAKE_CXX_STANDARD 11)
 
 # Add the source files
 set(SOURCES
-    Rotor.cpp
-    Reflector.cpp
-    Enigma.cpp
-    main.cpp
+    src/Rotor.cpp
+    src/Reflector.cpp
+    src/Enigma.cpp
+    src/main.cpp
 )
 
 # Add the include directories
