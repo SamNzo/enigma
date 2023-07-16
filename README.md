@@ -1,5 +1,5 @@
-# enigma
-c++ implementation of enigma cryptography machine
+# Enigma
+C++ implementation of enigma cryptography machine
 
 ```
                      __                                   
@@ -18,20 +18,18 @@ c++ implementation of enigma cryptography machine
 
 # Usage
 
-Clone repository
+Clone repository:
 ```
 git clone https://github.com/SamNzo/enigma.git
 ```
 
-Build enigma
+Build enigma:
 ```
-mkdir build
-cd build
-cmake ..
-cmake --build .
+chmod +x make.sh
+./make.sh
 ```
 
-Encode
+Encode/decode messages:
 ```
 ./enigma
 ```
