@@ -2,8 +2,24 @@
 
 void printHelp(bool helpRotor, bool helpReflector) {
 
+    std::cout << "                     __                                   " << std::endl;
+    std::cout << "                    |  \\                                  " << std::endl;
+    std::cout << "  ______   _______   \\$$  ______   ______ ____    ______  " << std::endl;
+    std::cout << " /      \\ |       \\ |  \\ /      \\ |      \\    \\  |      \\ " << std::endl;
+    std::cout << "|  $$$$$$\\| $$$$$$$\\| $$|  $$$$$$\\| $$$$$$\\$$$$\\  \\$$$$$$\\" << std::endl;
+    std::cout << "| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$ /      $$" << std::endl;
+    std::cout << "| $$$$$$$$| $$  | $$| $$| $$__| $$| $$ | $$ | $$|  $$$$$$$" << std::endl;
+    std::cout << " \\$$     \\| $$  | $$| $$ \\$$    $$| $$ | $$ | $$ \\$$    $$" << std::endl;
+    std::cout << "  \\$$$$$$$ \\$$   \\$$ \\$$ _\\$$$$$$$ \\$$  \\$$  \\$$  \\$$$$$$$" << std::endl;
+    std::cout << "                        |  \\__| $$                        " << std::endl;
+    std::cout << "                         \\$$    $$                        " << std::endl;
+    std::cout << "                          \\$$$$$$                          " << std::endl;
+    std::cout << "\n"
+    
     if (helpRotor) {
-        std::cout << "Rotor option usage: -r1, --rotor1 <wiring> <ring setting> <start position>\n"
+        std::cout << "Rotor option usage:   -l, --left-rotor <wiring> <ring setting> <start position>\n"
+              << "                          -m, --middle-rotor <wiring> <ring setting> <start position>\n"
+              << "                          -r, --right-rotor <wiring> <ring setting> <start position>\n"
               << "\n"
               << "If no rotors are specified the default configuration is <I 0 0> <II 0 0> <III 0 0>\n"
               << "The rotor order is left-to-right: the first rotor used is the right one\n"
@@ -29,12 +45,12 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "The starting position can be given as a number [0-25] or a letter [aA-zZ]\n"
               << "It corresponds to the initial offset that can be seen at the top of the machine\n"
               << "\n"
-              << "Examples:         enigma -r1 I 0 0 -r2 II 0 0 -r3 III 0 0\n"
+              << "Examples:         enigma --left-rotor I 0 0 --middle-rotor II 0 0 --right-rotor III 0 0\n"
               << "\n"
-              << "equivalent to     enigma -r1 I A A -r2 II A A -r3 III A A\n";
+              << "equivalent to     enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A\n";
     }
     if (helpReflector) {
-        std::cout << "Reflector option usage: -re, --reflector <wiring>\n"
+        std::cout << "Reflector option usage: -R, --reflector <wiring>\n"
               << "\n"
               << "If no reflector is specified the default one is B\n"
               << "Option:\n"
@@ -51,18 +67,18 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "  +----------+---------------------------------+\n"
               << "\n"
               << "\n"
-              << "Examples:         enigma -re A -\n"
+              << "Examples:         enigma -R A -\n"
               << "\n"
               << "equivalent to     enigma --reflector A\n";
     }
     else {
         std::cout << "Usage: enigma [options]\n"
               << "Options:\n"
-              << "  -h, --help <rotor|reflector>                            Display general help message\n"
-              << "  -r1, --rotor1 <wiring> <ring setting> <start position>  Specify the left rotor parameters\n"
-              << "  -r2, --rotor2 <wiring> <ring setting> <start position>  Specify the middle rotor parameters\n"
-              << "  -r3, --rotor3 <wiring> <ring setting> <start position>  Specify the right rotor parameters\n"
-              << "  -re, --reflector <wiring>                               Specify the reflector wiring\n"
+              << "  -h, --help <rotor|reflector>                                Display help message\n"
+              << "  -l, --left-rotor <wiring> <ring setting> <start position>   Specify the left rotor parameters\n"
+              << "  -m, --middle-rotor <wiring> <ring setting> <start position> Specify the middle rotor parameters\n"
+              << "  -r, --right-rotor <wiring> <ring setting> <start position>  Specify the right rotor parameters\n"
+              << "  -R, --reflector <wiring>                                    Specify the reflector wiring\n"
               << "\n"
               << "Example:          enigma -r1 I 0 0 -r2 II 0 0 -r3 III 0 0 -re B\n"
               << "\n"

@@ -1,0 +1,3 @@
+/home/sam/Documents/cryptography/enigma/build/CMakeFiles/enigma.dir
+/home/sam/Documents/cryptography/enigma/build/CMakeFiles/edit_cache.dir
+/home/sam/Documents/cryptography/enigma/build/CMakeFiles/rebuild_cache.dir
