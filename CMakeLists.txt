@@ -15,4 +15,4 @@ set(SOURCES
 include_directories(${PROJECT_SOURCE_DIR})
 
 # Create the executable
-add_executable(Enigma ${SOURCES})
+add_executable(enigma ${SOURCES})

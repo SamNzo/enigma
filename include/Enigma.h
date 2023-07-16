@@ -7,10 +7,10 @@
 
 class Enigma {
     private:
-        Rotor rotor;
+        Rotor *rotorList;
         Reflector reflector;
     public:
-        Enigma(std::string rotorWiring, std::string reflectorWiring);
+        Enigma(Rotor *rotorList, std::string reflectorWiring);
         std::string encode(std::string message);
 };
 

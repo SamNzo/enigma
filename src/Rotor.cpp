@@ -6,6 +6,8 @@ Rotor::Rotor(std::string wiring, int ringSetting, int startPosition)
     :   ringSetting(ringSetting), 
         startPosition(startPosition),
         left("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+    
+    this->position = startPosition;
 
     if (wiring == "I") {
         this->right = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
@@ -22,13 +24,18 @@ Rotor::Rotor(std::string wiring, int ringSetting, int startPosition)
 }
 
 char Rotor::forward(char letter) {
-    size_t index = this->left.find(letter);
+    size_t index = this->left.find(letter + this->position);
     char cipher = this->right[index];
     return cipher;
 }
 
 char Rotor::backward(char letter) {
-    size_t index = this->right.find(letter);
+    size_t index = this->right.find(letter + this->position);
     char cipher = this->left[index];
     return cipher;
+}
+
+int Rotor::turn() {
+    this->position = (this->position + 1) % 26;
+    return this->position;
 }

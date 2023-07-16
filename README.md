@@ -18,7 +18,7 @@ cmake --build .
 
 Encode
 ```
-./Enigma
+./enigma
 ```
 
 # Machine overview
