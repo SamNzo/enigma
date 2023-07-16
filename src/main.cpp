@@ -4,6 +4,9 @@
 #include "Help.cpp"
 
 int main(int argc, char** argv) {
+    //Rotor *rotorList = NULL;
+    //Reflector reflector = NULL;
+
     const char* const short_options = "h::";
     const struct option long_options[] = {
         {"help", optional_argument, nullptr, 'h'},
@@ -102,8 +105,6 @@ int main(int argc, char** argv) {
                 break;
         }
     }
-
-    std::cout << optind << std::endl;
 
     return 0;
 }

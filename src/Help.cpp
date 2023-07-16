@@ -14,10 +14,11 @@ void printHelp(bool helpRotor, bool helpReflector) {
     std::cout << "                        |  \\__| $$                        " << std::endl;
     std::cout << "                         \\$$    $$                        " << std::endl;
     std::cout << "                          \\$$$$$$                          " << std::endl;
-    std::cout << "\n"
+    std::cout << "\n";
     
     if (helpRotor) {
-        std::cout << "Rotor option usage:   -l, --left-rotor <wiring> <ring setting> <start position>\n"
+        std::cout << "Rotor options:\n"  
+              << "                          -l, --left-rotor <wiring> <ring setting> <start position>\n"
               << "                          -m, --middle-rotor <wiring> <ring setting> <start position>\n"
               << "                          -r, --right-rotor <wiring> <ring setting> <start position>\n"
               << "\n"
@@ -49,7 +50,7 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "\n"
               << "equivalent to     enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A\n";
     }
-    if (helpReflector) {
+    else if (helpReflector) {
         std::cout << "Reflector option usage: -R, --reflector <wiring>\n"
               << "\n"
               << "If no reflector is specified the default one is B\n"
@@ -80,9 +81,9 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "  -r, --right-rotor <wiring> <ring setting> <start position>  Specify the right rotor parameters\n"
               << "  -R, --reflector <wiring>                                    Specify the reflector wiring\n"
               << "\n"
-              << "Example:          enigma -r1 I 0 0 -r2 II 0 0 -r3 III 0 0 -re B\n"
+              << "Example:          enigma --left-rotor I 0 0 --middle-rotor II 0 0 --right-rotor III 0 0 --reflector B\n"
               << "\n"
-              << "equivalent to     enigma -r1 I A A -r2 II A A -r3 III A A -re B\n";
+              << "equivalent to     enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A --reflector B\n";
     }
     
 }
