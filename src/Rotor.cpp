@@ -2,12 +2,11 @@
 #include <iostream>
 #include <string.h>
 
-Rotor::Rotor(std::string wiring, int ringSetting, int startPosition)
+Rotor::Rotor(std::string wiring, int ringSetting, int startPosition, int position)
     :   ringSetting(ringSetting), 
         startPosition(startPosition),
+        position(position),
         left("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
-    
-    this->position = startPosition;
 
     if (wiring == "I") {
         this->right = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
@@ -21,6 +20,8 @@ Rotor::Rotor(std::string wiring, int ringSetting, int startPosition)
     else {
         std::cout << "Rotor wiring not supported" << std::endl;
     }
+
+    std::cout << "Rotor created with parameters: " << wiring << " " << ringSetting << " " << startPosition << std::endl; 
 }
 
 char Rotor::forward(char letter) {
@@ -36,6 +37,6 @@ char Rotor::backward(char letter) {
 }
 
 int Rotor::turn() {
-    this->position = (this->position + 1) % 26;
-    return this->position;
+    this->startPosition = (this->startPosition + 1) % 26;
+    return this->startPosition;
 }

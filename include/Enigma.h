@@ -2,15 +2,16 @@
 #define ENIGMA_H
 #include <iostream>
 #include <string.h>
+#include <vector>
 #include "Rotor.h"
 #include "Reflector.h"
 
 class Enigma {
     private:
-        Rotor *rotorList;
-        Reflector reflector;
+        std::vector<Rotor> rotorList;
+        std::vector<Reflector> reflectorList;
     public:
-        Enigma(Rotor *rotorList, std::string reflectorWiring);
+        Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList);
         std::string encode(std::string message);
 };
 

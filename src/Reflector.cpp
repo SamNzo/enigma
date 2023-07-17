@@ -17,6 +17,8 @@ Reflector::Reflector(std::string wiring)
     else {
         std::cout << "Reflector wiring not supported" << std::endl;
     }
+
+    std::cout << "Reflector created with wiring: " << wiring << std::endl;
 }
 
 char Reflector::reflect(char letter) {

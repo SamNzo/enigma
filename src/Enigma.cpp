@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string.h>
 
-Enigma::Enigma(Rotor *rotorList, std::string reflectorWiring)
+Enigma::Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList)
     :   rotorList(rotorList),
-        reflector(Reflector(reflectorWiring)) {
+        reflectorList(reflectorList) {
             
 }
 
