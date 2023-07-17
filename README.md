@@ -16,7 +16,7 @@ C++ implementation of enigma cryptography machine
                           \$$$$$$                         
 ```
 
-# Usage
+# Installation
 
 Clone repository:
 ```
@@ -29,10 +29,8 @@ chmod +x make.sh
 ./make.sh
 ```
 
-Encode/decode messages:
-```
-./enigma
-```
+# Usage
+
 
 # Machine overview
 
