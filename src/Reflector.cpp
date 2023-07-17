@@ -20,7 +20,8 @@ Reflector::Reflector(std::string wiring)
 }
 
 char Reflector::reflect(char letter) {
-    size_t index = this->left.find(letter);
+    int index = this->left.find(letter);
     char cipher = this->right[index];
+    std::cout << "Letter " << letter << " encoded into " << cipher << " with reflector " << std::endl;
     return cipher;
 }

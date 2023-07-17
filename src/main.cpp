@@ -249,6 +249,7 @@ int main(int argc, char** argv) {
 
     Enigma enigma = Enigma(rotorList, reflectorList);
 
+    std::cout << enigma.encode("AAAAA") << std::endl;
 
     return 0;
 }
