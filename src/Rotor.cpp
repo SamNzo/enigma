@@ -1,6 +1,4 @@
 #include "../include/Rotor.h"
-#include <iostream>
-#include <string.h>
 
 Rotor::Rotor(std::string wiring, int ringSetting, int startPosition, int position)
     :   ringSetting(ringSetting), 
@@ -18,7 +16,7 @@ Rotor::Rotor(std::string wiring, int ringSetting, int startPosition, int positio
         this->right = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
     }
     else {
-        std::cout << "Rotor wiring not supported" << std::endl;
+        throw std::runtime_error("Wiring not supported by rotor: './enigma -h rotor' for more information");
     }
 
     std::cout << "Rotor created with parameters: " << wiring << " " << ringSetting << " " << startPosition << std::endl; 

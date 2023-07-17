@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string.h>
 #include <vector>
+#include <algorithm>
+#include <stdexcept>
 #include "Rotor.h"
 #include "Reflector.h"
 
@@ -13,6 +15,8 @@ class Enigma {
     public:
         Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList);
         std::string encode(std::string message);
+        void createDefaultRotors(std::vector<Rotor> rotorList);
+        void createDefaultReflector(std::vector<Reflector> reflectorList);
 };
 
 #endif

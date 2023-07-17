@@ -1,6 +1,5 @@
 #include "../include/Enigma.h"
 #include <getopt.h>
-#include <vector>
 #include "Help.cpp"
 
 /* Rotors parameters */
@@ -24,6 +23,18 @@ bool reflectorProvided = false;
 /* Help booleans */
 bool helpRotor = false;
 bool helpReflector = false;
+
+/* Function to map letters to integers */
+int getIndexInAlphabet(const std::string& letter) {
+    if (letter.length() == 1) {
+        char ch = letter[0];
+        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+            ch = std::tolower(ch);  // Convert to lowercase
+            return ch - 'a';
+        }
+    }
+    return -1;  // Indicate invalid input
+}
 
 int main(int argc, char** argv) {
 
@@ -77,8 +88,6 @@ int main(int argc, char** argv) {
                     for (int i = 0; i < arguments.size(); i++) {
                         leftRotorParam.push_back(arguments[i]);
                     }
-
-                    optind += arguments.size() - 1;  // Update optind to skip processed arguments
                 }
                 break;
             case 'm':
@@ -98,8 +107,6 @@ int main(int argc, char** argv) {
                     for (int i = 0; i < arguments.size(); i++) {
                         middleRotorParam.push_back(arguments[i]);
                     }
-
-                    optind += arguments.size() - 1;  // Update optind to skip processed arguments
                 }
                 break;
             case 'r':
@@ -119,8 +126,6 @@ int main(int argc, char** argv) {
                     for (int i = 0; i < arguments.size(); i++) {
                         rightRotorParam.push_back(arguments[i]);
                     }
-
-                    optind += arguments.size() - 1;  // Update optind to skip processed arguments
                 }
                 break;
             case 'R':
@@ -147,8 +152,6 @@ int main(int argc, char** argv) {
                     for (int i = 0; i < arguments.size(); i++) {
                         fourthRotorParam.push_back(arguments[i]);
                     }
-
-                    optind += arguments.size() - 1;  // Update optind to skip processed arguments
                 }
                 break;
             default:
@@ -162,33 +165,90 @@ int main(int argc, char** argv) {
     std::vector<Reflector> reflectorList;
 
     if (leftRotorProvided) {
-        Rotor leftRotor = Rotor(leftRotorParam[0], std::stoi(leftRotorParam[1]), std::stoi(leftRotorParam[2]), 1);
-        rotorList.push_back(leftRotor);
+        int leftRingSetting = getIndexInAlphabet(leftRotorParam[1]);
+        int leftStartPosition = getIndexInAlphabet(leftRotorParam[2]);
+        if (leftRingSetting != -1 && leftStartPosition != -1) {
+            try {
+                Rotor leftRotor = Rotor(leftRotorParam[0], leftRingSetting, leftStartPosition, 1);
+                rotorList.push_back(leftRotor);
+            } catch (const std::exception& ex) {
+                std::cerr << "Exception occurred: " << ex.what() << std::endl;
+                return EXIT_FAILURE;
+            }
+        }
+        else {
+            std::cerr << "Exception occurred: The ring setting and starting position of the rotor(s) must be a letter [aA-zZ]" << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
     if (middleRotorProvided) {
-        Rotor middleRotor = Rotor(middleRotorParam[0], std::stoi(middleRotorParam[1]), std::stoi(middleRotorParam[2]), 2);
-        rotorList.push_back(middleRotor);
+        int middleRingSetting = getIndexInAlphabet(middleRotorParam[1]);
+        int middleStartPosition = getIndexInAlphabet(middleRotorParam[2]);
+        if (middleRingSetting != -1 && middleStartPosition != -1) {
+            try {
+                Rotor middleRotor = Rotor(middleRotorParam[0], middleRingSetting, middleStartPosition, 2);
+                rotorList.push_back(middleRotor);
+            } catch (const std::exception& ex) {
+                std::cerr << "Exception occurred: " << ex.what() << std::endl;
+                return EXIT_FAILURE;
+            }
+        }
+        else {
+            std::cerr << "Exception occurred: The ring setting and starting position of the rotor(s) must be a letter [aA-zZ]" << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
     if (rightRotorProvided) {
-        Rotor rightRotor = Rotor(rightRotorParam[0], std::stoi(rightRotorParam[1]), std::stoi(rightRotorParam[2]), 3);
-        rotorList.push_back(rightRotor);
+        int rightRingSetting = getIndexInAlphabet(rightRotorParam[1]);
+        int rightStartPosition = getIndexInAlphabet(rightRotorParam[2]);
+        if (rightRingSetting != -1 && rightStartPosition != -1) {
+            try {
+                Rotor rightRotor = Rotor(rightRotorParam[0], rightRingSetting, rightStartPosition, 3);
+                rotorList.push_back(rightRotor);
+            } catch (const std::exception& ex) {
+                std::cerr << "Exception occurred: " << ex.what() << std::endl;
+                return EXIT_FAILURE;
+            }
+        }
+        else {
+            std::cerr << "Exception occurred: The ring setting and starting position of the rotor(s) must be a letter [aA-zZ]" << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
     if (fourthRotorProvided) {
-        Rotor fourthRotor = Rotor(fourthRotorParam[0], std::stoi(fourthRotorParam[1]), std::stoi(fourthRotorParam[2]), 4);
-        rotorList.push_back(fourthRotor);
+        int fourthRingSetting = getIndexInAlphabet(fourthRotorParam[1]);
+        int fourthStartPosition = getIndexInAlphabet(fourthRotorParam[2]);
+        if (fourthRingSetting != -1 && fourthStartPosition != -1) {
+            try {
+                Rotor fourthRotor = Rotor(rightRotorParam[0], fourthRingSetting, fourthStartPosition, 4);
+                rotorList.push_back(fourthRotor);
+            } catch (const std::exception& ex) {
+                std::cerr << "Exception occurred: " << ex.what() << std::endl;
+                return EXIT_FAILURE;
+            }
+        }
+        else {
+            std::cerr << "Exception occurred: The ring setting and starting position of the rotor(s) must be a letter [aA-zZ]" << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
     if (reflectorProvided) {
-        Reflector reflector = Reflector(reflectorWiring);
-        reflectorList.push_back(reflector);
+        try {
+            Reflector reflector = Reflector(reflectorWiring);
+            reflectorList.push_back(reflector);
+        } catch (const std::exception& ex) {
+            std::cerr << "Exception occurred: " << ex.what() << std::endl;
+            return EXIT_FAILURE;
+        }
+
     }
 
     Enigma enigma = Enigma(rotorList, reflectorList);
 
-    /* */
 
     return 0;
 }

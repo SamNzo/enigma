@@ -1,6 +1,4 @@
 #include "../include/Reflector.h"
-#include <iostream>
-#include <string.h>
 
 Reflector::Reflector(std::string wiring)
     :   left("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
@@ -15,7 +13,7 @@ Reflector::Reflector(std::string wiring)
         this->right = "FVPJIAOYEDRZXWGCTKUQSBNMHL";
     }
     else {
-        std::cout << "Reflector wiring not supported" << std::endl;
+        throw std::runtime_error("Wiring not supported by the reflector: './enigma -h reflector' for more information");
     }
 
     std::cout << "Reflector created with wiring: " << wiring << std::endl;

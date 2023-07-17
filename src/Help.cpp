@@ -39,16 +39,16 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "  +----------+---------------------------------+---------------------+------------------------+\n"
               << "\n"
               << "  <ring setting>                                      Specify the ring setting\n"
-              << "The ring setting can be given as a number [0-25] or a letter [aA-zZ]\n"
+              << "The ring setting is a letter [aA-zZ] (where A represents 0 and Z represents 25)\n"
               << "It corresponds to an additional offset between the internal wiring and the rotor"
               << "\n"
               << "  <start position>                                    Specify the starting position of the rotor\n"
-              << "The starting position can be given as a number [0-25] or a letter [aA-zZ]\n"
+              << "The starting position is a letter [aA-zZ] (where A represents 0 and Z represents 25)\n"
               << "It corresponds to the initial offset that can be seen at the top of the machine\n"
               << "\n"
-              << "Examples:         enigma --left-rotor I 0 0 --middle-rotor II 0 0 --right-rotor III 0 0\n"
+              << "Examples:             enigma --left-rotor I a a --middle-rotor II a a --right-rotor III a a\n"
               << "\n"
-              << "equivalent to     enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A\n";
+              << "is equivalent to      enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A\n";
     }
     else if (helpReflector) {
         std::cout << "Reflector option usage: -R, --reflector <wiring>\n"
@@ -68,9 +68,9 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "  +----------+---------------------------------+\n"
               << "\n"
               << "\n"
-              << "Examples:         enigma -R A -\n"
+              << "Examples:             enigma -R A -\n"
               << "\n"
-              << "equivalent to     enigma --reflector A\n";
+              << "is equivalent to      enigma --reflector A\n";
     }
     else {
         std::cout << "Usage: enigma [options]\n"
