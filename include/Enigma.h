@@ -1,17 +1,15 @@
 #ifndef ENIGMA_H
 #define ENIGMA_H
-#include <iostream>
-#include <string.h>
-#include <vector>
-#include <algorithm>
 #include <stdexcept>
 #include "Rotor.h"
 #include "Reflector.h"
+#include "Plugboard.h"
 
 class Enigma {
     private:
         std::vector<Rotor> rotorList;
         std::vector<Reflector> reflectorList;
+        std::vector<Plugboard> plugboardList;
     public:
         Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList);
         std::string encode(std::string message);

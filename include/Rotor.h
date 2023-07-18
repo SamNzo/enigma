@@ -2,6 +2,8 @@
 #define ROTOR_H
 #include <iostream>
 #include <string.h>
+#include <vector>
+#include <algorithm>
 
 class Rotor {
     private:
@@ -17,7 +19,7 @@ class Rotor {
         std::string right;
         int startPosition;
         int position; // position in the machine [1, 2, 3, (4)]
-        int notch;
+        std::vector<int> notch;
 };
 
 #endif
