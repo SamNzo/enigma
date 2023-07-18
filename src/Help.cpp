@@ -28,15 +28,15 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "Options:\n"
               << "  <wiring>                                            Specify the internal wiring of the rotor\n"
               << "\n"
-              << "  +----------+---------------------------------+---------------------+------------------------+\n"
-              << "  |  option  |             wiring              |   date introduced   |       model name       |\n"
-              << "  +----------+---------------------------------+---------------------+------------------------+\n"
-              << "  |    I     |   EKMFLGDQVZNTOWYHXUSPAIBRCJ    |        1930         |  Enigma I (Wehrmacht)  |\n"
-              << "  +----------+---------------------------------+---------------------+------------------------+\n"
-              << "  |    II    |   AJDKSIRUXBLHWTMCQGZNPYFVOE    |        1930         |  Enigma I (Wehrmacht)  |\n"
-              << "  +----------+---------------------------------+---------------------+------------------------+\n"
-              << "  |    III   |   BDFHJLCPRTXVZNYEIWGAKMUSQO    |        1930         |  Enigma I (Wehrmacht)  |\n"
-              << "  +----------+---------------------------------+---------------------+------------------------+\n"
+              << "  +----------+---------------------------------+-----------+--------------------+------------------------+\n"
+              << "  |  option  |             wiring              |   notch   |  date introduced   |       model name       |\n"
+              << "  +----------+---------------------------------+-----------+--------------------+------------------------+\n"
+              << "  |    I     |   EKMFLGDQVZNTOWYHXUSPAIBRCJ    |     Q     |        1930        |  Enigma I (Wehrmacht)  |\n"
+              << "  +----------+---------------------------------+-----------+--------------------+------------------------+\n"
+              << "  |    II    |   AJDKSIRUXBLHWTMCQGZNPYFVOE    |     E     |        1930        |  Enigma I (Wehrmacht)  |\n"
+              << "  +----------+---------------------------------+-----------+--------------------+------------------------+\n"
+              << "  |    III   |   BDFHJLCPRTXVZNYEIWGAKMUSQO    |     V     |        1930        |  Enigma I (Wehrmacht)  |\n"
+              << "  +----------+---------------------------------+-----------+--------------------+------------------------+\n"
               << "\n"
               << "  <ring setting>                                      Specify the ring setting\n"
               << "The ring setting is a letter [aA-zZ] (where A represents 0 and Z represents 25)\n"
@@ -68,7 +68,7 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "  +----------+---------------------------------+\n"
               << "\n"
               << "\n"
-              << "Examples:             enigma -R A -\n"
+              << "Examples:             enigma -R A \n"
               << "\n"
               << "is equivalent to      enigma --reflector A\n";
     }
@@ -80,10 +80,11 @@ void printHelp(bool helpRotor, bool helpReflector) {
               << "  -m, --middle-rotor <wiring> <ring setting> <start position> Specify the middle rotor parameters\n"
               << "  -r, --right-rotor <wiring> <ring setting> <start position>  Specify the right rotor parameters\n"
               << "  -R, --reflector <wiring>                                    Specify the reflector wiring\n"
+              << "  -M  --message <msg>                                         Message to encode/decode\n"
               << "\n"
-              << "Example:          enigma --left-rotor I 0 0 --middle-rotor II 0 0 --right-rotor III 0 0 --reflector B\n"
+              << "Example:          enigma --left-rotor I 0 0 --middle-rotor II 0 0 --right-rotor III 0 0 --reflector B --message ENIGMA\n"
               << "\n"
-              << "equivalent to     enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A --reflector B\n";
+              << "equivalent to     enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A --reflector B --message ENIGMA\n";
     }
     
 }

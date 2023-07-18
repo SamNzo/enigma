@@ -15,15 +15,17 @@ std::string Enigma::encode(std::string message) {
     std::string cipher = "";
     char letter;
     int previousRotorOffset;
+    int nextToTurn1;
+    int nextToTurn2;
     // For each letter to encode
     for (int i=0; i<message.length(); i++) {
         std::cout << "------------------------------" << std::endl;
         letter = message[i];
+        this->turnCheckNotches();
         // Go through each rotor right to left
         for (int j=this->rotorList.size()-1; j >= 0; j--) {
             // If the rotor is the first one, turn
             if (this->rotorList[j].position == rotorList.size()) {
-                this->rotorList[j].turn();
                 letter = this->rotorList[j].forward(letter, 0);
             }
             else {
@@ -39,12 +41,14 @@ std::string Enigma::encode(std::string message) {
             if (this->rotorList[j].position == 1) {
                 letter = this->rotorList[j].backward(letter, 0);
             }
+            // If the rotor is the last one
             else if (this->rotorList[j].position == this->rotorList.size()) {
                 previousRotorOffset = this->rotorList[j-1].startPosition;
                 letter = this->rotorList[j].backward(letter, previousRotorOffset);
                 int index = this->rotorList[j].left.find(letter);
                 letter = this->rotorList[j].left[((index - this->rotorList[j].startPosition) % 26 + 26) % 26];
             }
+            // Otherwise
             else {
                 previousRotorOffset = this->rotorList[j-1].startPosition;
                 letter = this->rotorList[j].backward(letter, previousRotorOffset);
@@ -103,4 +107,23 @@ void Enigma::createDefaultReflector(std::vector<Reflector> reflectorList) {
 
 bool Enigma::compareByPosition(const Rotor& rotor1, const Rotor& rotor2) {
     return rotor1.position < rotor2.position;
+}
+
+void Enigma::turnCheckNotches() {
+    bool notch;
+    int rotorListSize = this->rotorList.size();
+    // Make the first rotor turn
+    notch = this->rotorList.back().turn();
+    // If second rotor is turning because of notch
+    if (notch) {
+        notch = this->rotorList[rotorListSize-2].turn();
+        // If third rotor is turning because of notch
+        if (notch) {
+            notch = this->rotorList[rotorListSize-3].turn();
+            // If there are 4 rotor and the 4rth turns because of notch
+            if (this->rotorList[rotorListSize-3].position != 1 && notch) {
+                notch = this->rotorList[rotorListSize-4].turn();
+            }
+        }
+    }
 }

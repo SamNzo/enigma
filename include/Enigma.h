@@ -17,6 +17,7 @@ class Enigma {
         std::string encode(std::string message);
         void createDefaultRotors(std::vector<Rotor> rotorList);
         void createDefaultReflector(std::vector<Reflector> reflectorList);
+        void turnCheckNotches();
         static bool compareByPosition(const Rotor& rotor1, const Rotor& rotor2);
 };
 

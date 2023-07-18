@@ -1,6 +1,10 @@
 #include "../include/Enigma.h"
 #include <getopt.h>
+#include <cctype>
 #include "Help.cpp"
+
+/* Message to encode/decode */
+std::string message;
 
 /* Rotors parameters */
 std::vector<std::string> leftRotorParam;
@@ -39,7 +43,7 @@ int getIndexInAlphabet(const std::string& letter) {
 int main(int argc, char** argv) {
 
     /* Program command line options */
-    const char* const short_options = "h::lmrRf";
+    const char* const short_options = "h::l:m:r:R:f:M:";
     const struct option long_options[] = {
         {"help", optional_argument, nullptr, 'h'},
         {"left-rotor", required_argument, nullptr, 'l'},
@@ -47,6 +51,7 @@ int main(int argc, char** argv) {
         {"right-rotor", required_argument, nullptr, 'r'},
         {"reflector", required_argument, nullptr, 'R'},
         {"fourth-rotor", required_argument, nullptr, 'f'},
+        {"message", required_argument, nullptr, 'M'},
 
         {nullptr, 0, nullptr, 0}
     };
@@ -154,6 +159,13 @@ int main(int argc, char** argv) {
                     }
                 }
                 break;
+            case 'M':
+                {
+                    std::string str(optarg);
+                    message = str;
+                    std::transform(message.begin(), message.end(), message.begin(), ::toupper);
+                }
+                break;
             default:
                 std::cout << "Invalid option" << std::endl;
                 break;
@@ -248,8 +260,8 @@ int main(int argc, char** argv) {
     }
 
     Enigma enigma = Enigma(rotorList, reflectorList);
-
-    std::cout << enigma.encode("AAAAA") << std::endl;
+    
+    std::cout << enigma.encode(message) << std::endl;
 
     return 0;
 }
