@@ -96,15 +96,15 @@ https://www.cryptomuseum.com/crypto/enigma/working.htm
 
 https://fr.wikipedia.org/wiki/Enigma_(machine)
 
-Rotors internal wiring, notches, etc. are described here
+Rotors internal wiring, notches, etc. are described here:
 
 https://en.wikipedia.org/wiki/Enigma_rotor_details
 
-If you want to play with a virtual Enigma machine
+If you want to play with a virtual Enigma machine:
 
 https://enigma.virtualcolossus.co.uk/VirtualEnigma/
 
-If you'd rather play by hand Mike Koss made this great paper simulator
+If you'd rather play by hand, Mike Koss made this great paper simulator:
 
 https://mckoss.com/posts/paper-enigma/
 
