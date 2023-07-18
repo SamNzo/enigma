@@ -9,7 +9,7 @@ class Reflector {
         std::string right;
     public:
         Reflector(std::string wiring);
-        char reflect(char letter);
+        char reflect(char letter, int previousRotorOffset);
 };
 
 #endif

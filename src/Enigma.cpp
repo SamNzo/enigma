@@ -24,7 +24,7 @@ std::string Enigma::encode(std::string message) {
         this->turnCheckNotches();
         // Go through each rotor right to left
         for (int j=this->rotorList.size()-1; j >= 0; j--) {
-            // If the rotor is the first one, turn
+            // If the rotor is the first one, previous offset is 0
             if (this->rotorList[j].position == rotorList.size()) {
                 letter = this->rotorList[j].forward(letter, 0);
             }
@@ -34,14 +34,14 @@ std::string Enigma::encode(std::string message) {
             }
         }
         // Go through the reflector
-        letter = this->reflectorList[0].reflect(letter);
+        letter = this->reflectorList[0].reflect(letter, this->rotorList.front().startPosition);
         // Go through each rotor again from left to right
         for (int j=0; j < this->rotorList.size(); j++) {
-            // If the rotor is the first one
+            // If the rotor is the first one, previous offset is 0
             if (this->rotorList[j].position == 1) {
                 letter = this->rotorList[j].backward(letter, 0);
             }
-            // If the rotor is the last one
+            // If the rotor is the last one, adapt offset from letters wiring (substract the position on the alphabet)
             else if (this->rotorList[j].position == this->rotorList.size()) {
                 previousRotorOffset = this->rotorList[j-1].startPosition;
                 letter = this->rotorList[j].backward(letter, previousRotorOffset);
@@ -122,6 +122,7 @@ void Enigma::turnCheckNotches() {
             notch = this->rotorList[rotorListSize-3].turn();
             // If there are 4 rotor and the 4rth turns because of notch
             if (this->rotorList[rotorListSize-3].position != 1 && notch) {
+                std::cout << "fourth rotor turning" << std::endl;
                 notch = this->rotorList[rotorListSize-4].turn();
             }
         }
