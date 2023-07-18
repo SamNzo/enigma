@@ -72,10 +72,11 @@ To encode the message ``ENIGMA`` using 3 rotors (II, V, VIII) with respective ri
 ./enigma --left-rotor II W S --middle-rotor V A U --right-rotor VIII R N --plugboard AF DG RM --message ENIGMA
 ```
 
+**Note:** since Enigma is self-reciprocal, to decode the message simply use the configuration used to encode it on the ciphered message
 
 # Machine overview
 
-# Ressources 📚
+# Ressources
 These ressource are helpful to understand how the machine works.
 
 I recommend watching these Numberphile videos in which they explain how the machine works, how it was used during the war and decrypted:
@@ -94,7 +95,7 @@ If you'd rather read:
 
 https://www.cryptomuseum.com/crypto/enigma/working.htm
 
-https://fr.wikipedia.org/wiki/Enigma_(machine)
+https://en.wikipedia.org/wiki/Enigma_machine
 
 Rotors internal wiring, notches, etc. are described here:
 
