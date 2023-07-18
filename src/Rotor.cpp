@@ -18,6 +18,26 @@ Rotor::Rotor(std::string wiring, int ringSetting, int startPosition, int positio
         this->right = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
         this->notch = 21;
     }
+    else if (wiring == "IV") {
+        this->right = "ESOVPZJAYQUIRHXLNFTGKDCMWB";
+        this->notch = 9;
+    }
+    else if (wiring == "V") {
+        this->right = "VZBRGITYUPSDNHLXAWMJQOFECK";
+        this->notch = 25;
+    }
+    else if (wiring == "VI") {
+        this->right = "JPGVOUMFYQBENHZRDKASXLICTW";
+        this->notch = 25;
+    }
+    else if (wiring == "VII") {
+        this->right = "NZJHGRCXMYSWBOUFAIVLPEKQDT";
+        this->notch = 25;
+    }
+    else if (wiring == "VIII") {
+        this->right = "FKQHTLXOCBJSPDZRAMEWNIUYGV";
+        this->notch = 25;
+    }
     else {
         throw std::runtime_error("Wiring not supported by rotor: './enigma -h rotor' for more information");
     }

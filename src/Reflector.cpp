@@ -12,6 +12,12 @@ Reflector::Reflector(std::string wiring)
     else if (wiring == "C") {
         this->right = "FVPJIAOYEDRZXWGCTKUQSBNMHL";
     }
+    else if (wiring == "B-Thin") {
+        this->right = "ENKQAUYWJICOPBLMDXZVFTHRGS";
+    }
+    else if (wiring == "C-Thin") {
+        this->right = "RDOBJNTKVEHMLFCWZAXGYIPSUQ";
+    }
     else {
         throw std::runtime_error("Wiring not supported by the reflector: './enigma -h reflector' for more information");
     }
