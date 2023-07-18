@@ -1,5 +1,5 @@
 # Enigma
-C++ implementation of enigma cryptography machine
+The Enigma machine is a cipher device developed and used in the early- to mid-20th century. It was employed extensively by Nazi Germany during World War II, in all branches of the German military.
 
 ```
                      __                                   
