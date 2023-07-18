@@ -39,7 +39,7 @@ The simplest way to use it is:
 If no information is provided about the rotors, reflector and plugboard the default configuration is
 
 |  Reflector  |      Left rotor      |  Middle rotor |  Right rotor |
-|:-----------:|:--------------------:|--------------:|-------------:|
+|:-----------:|:--------------------:|:-------------:|:------------:|
 |      B      |         I AA         |     II A A    |    III A A   |
 
 You can customize it by choosing up to 4 rotors, 1 reflector and 1 plugboard. 
