@@ -2,8 +2,7 @@
 
 Enigma::Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList)
     :   rotorList(rotorList),
-        reflectorList(reflectorList),
-        plugboardList(plugboardList) {
+        reflectorList(reflectorList) {
 
         this->createDefaultRotors(this->rotorList);
         this->createDefaultReflector(this->reflectorList);

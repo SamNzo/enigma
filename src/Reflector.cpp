@@ -21,8 +21,6 @@ Reflector::Reflector(std::string wiring)
     else {
         throw std::runtime_error("Wiring not supported by the reflector: './enigma -h reflector' for more information");
     }
-
-    std::cout << "Reflector created with wiring: " << wiring << std::endl;
 }
 
 char Reflector::reflect(char letter, int previousRotorOffset) {

@@ -100,7 +100,7 @@ void printHelp(bool helpRotor, bool helpReflector, bool helpPlugboard) {
     else {
         std::cout << "Usage: enigma [options]\n"
               << "Options:\n"
-              << "  -h, --help <rotor|reflector>                                Display help message\n"
+              << "  -h, --help <rotor|reflector|plugboard>                      Display help message\n"
               << "  -l, --left-rotor <wiring> <ring setting> <start position>   Specify the left rotor parameters\n"
               << "  -m, --middle-rotor <wiring> <ring setting> <start position> Specify the middle rotor parameters\n"
               << "  -r, --right-rotor <wiring> <ring setting> <start position>  Specify the right rotor parameters\n"

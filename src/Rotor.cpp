@@ -42,7 +42,7 @@ Rotor::Rotor(std::string wiring, int ringSetting, int startPosition, int positio
         throw std::runtime_error("Wiring not supported by rotor: './enigma -h rotor' for more information");
     }
 
-    std::cout << "Rotor created with parameters: " << wiring << " " << ringSetting << " " << startPosition << std::endl; 
+    this->setRing();
 }
 
 char Rotor::forward(char letter, int previousRotorOffset) {
@@ -80,4 +80,13 @@ bool Rotor::turn() {
     this->startPosition = (this->startPosition + 1) % 26;
     std::cout << "Rotor " << this->position << " just turned and is in position " << this->startPosition << std::endl;
     return notchReached;
+}
+
+void Rotor::setRing() {
+    this->startPosition = (this->startPosition - this->ringSetting) % 26;
+
+    for (int i=0; i<this->notch.size(); i++) {
+        this->notch[i] = this->left[(this->notch[i] - this->ringSetting) % 26];
+    }
+
 }

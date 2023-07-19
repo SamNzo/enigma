@@ -85,7 +85,7 @@ int main(int argc, char** argv) {
                         }
                     }
                     printHelp(helpRotor, helpReflector, helpPlugboard);
-                    return 0;
+                    return EXIT_SUCCESS;
                 }
                 break;
             case 'l':

@@ -1,4 +1,6 @@
 # Enigma
+C++ implementation of Enigma.
+
 The Enigma machine is a cipher device developed and used in the early- to mid-20th century. It was employed extensively by Nazi Germany during World War II, in all branches of the German military.
 
 ```
@@ -37,7 +39,7 @@ The simplest way to use it is:
 ./enigma --message <your message>
 ```
 
-If no information is provided about the rotors, reflector and plugboard the default configuration is
+If no information is provided about the rotors, reflector and plugboard the default configuration is:
 
 |  Reflector  |      Left rotor      |  Middle rotor |  Right rotor |
 |:-----------:|:--------------------:|:-------------:|:------------:|
@@ -45,7 +47,7 @@ If no information is provided about the rotors, reflector and plugboard the defa
 
 You can customize it by choosing up to 4 rotors, 1 reflector and 1 plugboard. 
 
-For each rotor you can chose a wiring, ring setting and starting position:
+For each rotor you can choose a wiring, ring setting and starting position:
 
 ```
 ./enigma --left-rotor I A A --middle-rotor II A A --right-rotor III A A --reflector B --message <your message>
@@ -77,7 +79,7 @@ To encode the message ``ENIGMA`` using 3 rotors (II, V, VIII) with respective ri
 # Machine overview
 
 # Ressources
-These ressource are helpful to understand how the machine works.
+These ressources are helpful to understand how the machine works.
 
 I recommend watching these Numberphile videos in which they explain how the machine works, how it was used during the war and decrypted:
 

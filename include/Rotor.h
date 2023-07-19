@@ -15,6 +15,7 @@ class Rotor {
         char forward(char letter, int previousRotorOffset);
         char backward(char letter, int previousRotorOffset);
         bool turn();
+        void setRing();
         std::string left;  
         std::string right;
         int startPosition;
