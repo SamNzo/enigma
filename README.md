@@ -77,6 +77,7 @@ To encode the message ``ENIGMA`` using 3 rotors (II, V, VIII) with respective ri
 **Note:** since Enigma is self-reciprocal, to decode the message simply use the configuration used to encode it on the ciphered message
 
 # Machine overview
+The Enigma machine, used extensively during World War II, was a remarkable encryption device. It consisted of a keyboard, a set of rotating wheels called rotors, a reflector, and a display panel. When a letter was pressed on the keyboard, an electrical signal passed through the rotors, which had intricate internal wiring. Each rotor had a different wiring configuration, causing the input signal to be scrambled in a complex manner. The rotors rotated with each key press, altering the wiring connections and ensuring that a letter was not always encoded by the same character. After passing through the rotors, the signal was reflected back through the wiring, further scrambling the message. The encrypted letter was then displayed on the panel. To decrypt the message, the receiver had to know the exact settings used by the sender, including the initial rotor positions and wiring configurations. The Enigma machine's encryption was considered highly secure at the time, but it was eventually cracked by codebreakers, notably mathematician Alan Turing, leading to a crucial breakthrough in cryptography. 
 
 # Ressources
 These ressources are helpful to understand how the machine works.
