@@ -70,6 +70,7 @@ char Rotor::backward(char letter, int previousRotorOffset) {
 }
 
 bool Rotor::turn() {
+    std::cout << "rotor " << this->position << " has notch " << this->notch[0] << std::endl;
     bool notchReached = false;
     // Check if one of the notches is reached
     auto it = std::find(this->notch.begin(), this->notch.end(), this->startPosition);
@@ -83,10 +84,15 @@ bool Rotor::turn() {
 }
 
 void Rotor::setRing() {
+    char letter;
+    std::cout << "at beginning of setRing, rotor " << this->position << " has notch " << this->notch[0] << std::endl;
     this->startPosition = (this->startPosition - this->ringSetting) % 26;
 
-    for (int i=0; i<this->notch.size(); i++) {
-        this->notch[i] = this->left[(this->notch[i] - this->ringSetting) % 26];
+    for (int i=0; i < this->notch.size(); i++) {
+        letter = this->left[(this->notch[i] - this->ringSetting) % 26];
+        this->notch[i] = this->left.find(letter);
     }
+
+    std::cout << "at ending of setRing, rotor " << this->position << " has notch " << this->notch[0] << std::endl;
 
 }
