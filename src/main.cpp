@@ -289,7 +289,7 @@ int main(int argc, char** argv) {
             return EXIT_FAILURE;
         }
     }
-/*
+
     if (plugboardProvided) {
         try {
             Plugboard plugboard = Plugboard(plugboardParam);
@@ -298,9 +298,9 @@ int main(int argc, char** argv) {
             std::cerr << "Exception occurred: " << ex.what() << std::endl;
             return EXIT_FAILURE;
         }
-    }*/
+    }
 
-    Enigma enigma = Enigma(rotorList, reflectorList);
+    Enigma enigma = Enigma(rotorList, reflectorList, plugboardList);
     
     std::cout << enigma.encode(message) << std::endl;
 

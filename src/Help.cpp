@@ -90,12 +90,14 @@ void printHelp(bool helpRotor, bool helpReflector, bool helpPlugboard) {
     else if (helpPlugboard) {
         std::cout << "Plugboard option usage: -P, --plugboard <couples>\n"
               << "\n"
+              << "Historically the plugboard was a security layer added for military machines.\n"
+              << "\n"
               << "Option:\n"
               << "  <couples>                                            Specify letters coupled together\n"
               << "\n"
               << "Example: to form couples A-B C-D and E-F\n"
               << "\n"
-              << "                  enigma -P AB CD EF\n";
+              << "                  enigma -P AB CD EF      or      enigma --plugboard AB CD EF\n";
     }
     else {
         std::cout << "Usage: enigma [options]\n"

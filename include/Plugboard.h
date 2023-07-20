@@ -11,7 +11,7 @@ class Plugboard {
     public:
         Plugboard(std::vector<std::string> couples);
         char plug(char letter);
-        bool hasDuplicateCharacters(const std::vector<std::string>& strings);
+        bool isValid();
 };
 
 #endif

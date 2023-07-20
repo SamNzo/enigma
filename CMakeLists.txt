@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(SOURCES
     src/Rotor.cpp
     src/Reflector.cpp
+    src/Plugboard.cpp
     src/Enigma.cpp
     src/main.cpp
 )

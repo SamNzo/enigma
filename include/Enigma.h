@@ -9,8 +9,9 @@ class Enigma {
     private:
         std::vector<Rotor> rotorList;
         std::vector<Reflector> reflectorList;
+        std::vector<Plugboard> plugboardList;
     public:
-        Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList);
+        Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList, std::vector<Plugboard> plugboardList);
         std::string encode(std::string message);
         void createDefaultRotors(std::vector<Rotor> rotorList);
         void createDefaultReflector(std::vector<Reflector> reflectorList);

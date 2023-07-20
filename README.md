@@ -32,6 +32,8 @@ chmod +x make.sh
 ./make.sh
 ```
 
+The enigma binary is then in the ``build`` directory.
+
 # Usage
 The simplest way to use it is:
 
@@ -57,15 +59,9 @@ To know which rotors wiring are available: ``./enigma -h rotor``
 
 To know which reflectors wiring are available: ``./enigma -h reflector``
 
+To get more information about the plugboard: ``./enigma -h plugboard``
+
 For more information: ``./enigma -h``
-
-If you want to use a specific machine (Wehrmacht, Kriegsmarine):
-
-```
-./enigma --wehrmacht --message <your message>
-```
-
-For more information about available machines: ``./enigma -h machines``
 
 ## Example
 To encode the message ``ENIGMA`` using 3 rotors (II, V, VIII) with respective ring settings WAR, starting positions SUN and plugboard A-F, D-G, R-M:

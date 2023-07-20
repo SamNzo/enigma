@@ -1,8 +1,9 @@
 #include "../include/Enigma.h"
 
-Enigma::Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList)
+Enigma::Enigma(std::vector<Rotor> rotorList, std::vector<Reflector> reflectorList, std::vector<Plugboard> plugboardList)
     :   rotorList(rotorList),
-        reflectorList(reflectorList) {
+        reflectorList(reflectorList),
+        plugboardList(plugboardList) {
 
         this->createDefaultRotors(this->rotorList);
         this->createDefaultReflector(this->reflectorList);
@@ -21,6 +22,9 @@ std::string Enigma::encode(std::string message) {
     for (int i=0; i<message.length(); i++) {
         std::cout << "------------------------------" << std::endl;
         letter = message[i];
+        if (this->plugboardList.size() != 0) {
+            letter = this->plugboardList.front().plug(letter);
+        }
         this->turnCheckNotches();
         // Go through each rotor right to left
         for (int j=this->rotorList.size()-1; j >= 0; j--) {
@@ -53,6 +57,9 @@ std::string Enigma::encode(std::string message) {
                 previousRotorOffset = this->rotorList[j-1].startPosition;
                 letter = this->rotorList[j].backward(letter, previousRotorOffset);
             }
+        }
+        if (this->plugboardList.size() != 0) {
+            letter = this->plugboardList[0].plug(letter);
         }
         cipher += letter;
     std::cout << "Encoded letter " << message[i] << ": " << letter << std::endl;
