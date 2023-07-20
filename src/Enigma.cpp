@@ -20,7 +20,6 @@ std::string Enigma::encode(std::string message) {
     int nextToTurn2;
     // For each letter to encode
     for (int i=0; i<message.length(); i++) {
-        std::cout << "------------------------------" << std::endl;
         letter = message[i];
         if (this->plugboardList.size() != 0) {
             letter = this->plugboardList.front().plug(letter);
@@ -62,7 +61,6 @@ std::string Enigma::encode(std::string message) {
             letter = this->plugboardList[0].plug(letter);
         }
         cipher += letter;
-    std::cout << "Encoded letter " << message[i] << ": " << letter << std::endl;
     }
     return cipher;
 }
@@ -129,7 +127,6 @@ void Enigma::turnCheckNotches() {
             notch = this->rotorList[rotorListSize-3].turn();
             // If there are 4 rotor and the 4rth turns because of notch
             if (this->rotorList[rotorListSize-3].position != 1 && notch) {
-                std::cout << "fourth rotor turning" << std::endl;
                 notch = this->rotorList[rotorListSize-4].turn();
             }
         }

@@ -64,10 +64,11 @@ To get more information about the plugboard: ``./enigma -h plugboard``
 For more information: ``./enigma -h``
 
 ## Example
-To encode the message ``ENIGMA`` using 3 rotors (II, V, VIII) with respective ring settings WAR, starting positions SUN and plugboard A-F, D-G, R-M:
+To encode the message ``ENIGMA`` using 3 rotors (II, IV, I) with respective ring settings WAR, starting positions SUN, reflector B and plugboard A-F, D-G, R-M:
 
 ```
-./enigma --left-rotor II W S --middle-rotor V A U --right-rotor VIII R N --plugboard AF DG RM --message ENIGMA
+./enigma --left-rotor II W S --middle-rotor IV A U --right-rotor I R N --reflector B --plugboard AF DG RM --message ENIGMA
+AORWCK
 ```
 
 **Note:** since Enigma is self-reciprocal, to decode the message simply use the configuration used to encode it on the ciphered message

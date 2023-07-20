@@ -26,8 +26,6 @@ Reflector::Reflector(std::string wiring)
 char Reflector::reflect(char letter, int previousRotorOffset) {
     int index = this->left.find(letter);
     index = ((index - previousRotorOffset) % 26 + 26) % 26;
-    std::cout << "Index: " << index << std::endl;
     char cipher = this->right[index];
-    std::cout << "Letter " << letter << " encoded into " << cipher << " with reflector " << std::endl;
     return cipher;
 }
