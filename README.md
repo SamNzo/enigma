@@ -85,6 +85,10 @@ To decrypt the message, the receiver had to know the exact settings used by the 
 # Ressources
 These ressources are helpful to understand how the machine works.
 
+If you are interested in the history of the enigma cryptanalysis, read the following book:
+
+Solving the Enigma - History of the Cryptanalytic Bombe by Jennifer Wilcox
+
 I recommend watching these Numberphile videos in which they explain how the machine works, how it was used during the war and cracked:
 
 https://www.youtube.com/watch?v=G2_Q9FoD-oQ
