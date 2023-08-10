@@ -119,3 +119,8 @@ https://mckoss.com/posts/paper-enigma/
 
 *Solving the Enigma - History of the Cryptanalytic Bombe by Jennifer Wilcox*
 
+# Breaking enigma
+
+I implemented a ciphertext-only attack based on index of coincidence here: https://github.com/SamNzo/enigma-IoC-attack
+
+During the war cryptanalysts used a different approach: cryptographic bombs
