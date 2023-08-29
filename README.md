@@ -115,3 +115,12 @@ If you'd rather play by hand, Mike Koss made this great paper simulator:
 
 https://mckoss.com/posts/paper-enigma/
 
+**If you are interested in the history of the enigma cryptanalysis, read the following book:**
+
+*Solving the Enigma - History of the Cryptanalytic Bombe by Jennifer Wilcox*
+
+# Breaking enigma
+
+I implemented a ciphertext-only attack based on index of coincidence here: https://github.com/SamNzo/enigma-IoC-attack
+
+During the war cryptanalysts used a different approach: cryptographic bombs
