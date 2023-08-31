@@ -66,7 +66,7 @@ std::string stringToInt(std::string str) {
 int main(int argc, char** argv) {
 
     /* Program command line options */
-    const char* const short_options = "h::l:m:r:R:f:P:M:";
+    const char* const short_options = "h::l:m:r:R:f:p:M:";
     const struct option long_options[] = {
         {"help", optional_argument, nullptr, 'h'},
         {"left-rotor", required_argument, nullptr, 'l'},
@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
         {"right-rotor", required_argument, nullptr, 'r'},
         {"reflector", required_argument, nullptr, 'R'},
         {"fourth-rotor", required_argument, nullptr, 'f'},
-        {"plugboard", required_argument, nullptr, 'P'},
+        {"plugboard", required_argument, nullptr, 'p'},
         {"message", required_argument, nullptr, 'M'},
 
         {nullptr, 0, nullptr, 0}
@@ -207,22 +207,29 @@ int main(int argc, char** argv) {
                     }
                 }
                 break;
-            case 'P':
+            case 'p':
                 {
                     // Plugboard
                     plugboardProvided = true;
-                    std::vector<std::string> arguments;
-                    // First argument
-                    arguments.push_back(optarg);
 
-                    // Process additional arguments if present
-                    for (int i = optind; i < argc && i < optind + 2; ++i) {
-                        arguments.push_back(argv[i]);
-                    }
-                    
+                    // First argument
+                    plugboardParam.push_back(optarg);
+
+                    // Process non-option arguments after "--" if needed
+                        for (int i = optind; i < argc; ++i) {
+                            std::string arg = argv[i];
+                            if (arg.find("-") != std::string::npos)
+                                break; // Stop processing when "-" is encountered
+                            else {
+                                
+                                plugboardParam.push_back(arg);
+                              
+                            }
+                        }
+
                     // Add arguments to rotor params
-                    for (int i = 0; i < arguments.size(); i++) {
-                        plugboardParam.push_back(arguments[i]);
+                    for (int i = 0; i < plugboardParam.size(); i++) {
+                        std::cout << plugboardParam[i] << std::endl;
                     }
                 }
                 break;
