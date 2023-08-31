@@ -107,7 +107,7 @@ void printHelp(bool helpRotor, bool helpReflector, bool helpPlugboard) {
               << "  -m, --middle-rotor <wiring> <ring setting> <start position> Specify the middle rotor parameters\n"
               << "  -r, --right-rotor <wiring> <ring setting> <start position>  Specify the right rotor parameters\n"
               << "  -R, --reflector <wiring>                                    Specify the reflector wiring\n"
-              << "  -P, --plugboard <connections>                               Specify the plugboard connections\n"
+              << "  -p, --plugboard <connections>                               Specify the plugboard connections\n"
               << "  -M  --message <msg>                                         Message to encode/decode\n"
               << "\n"
               << "Example:          enigma --left-rotor I 0 0 --middle-rotor II 0 0 --right-rotor III 0 0 --reflector B --message ENIGMA\n"
