@@ -35,6 +35,8 @@ bool helpRotor = false;
 bool helpReflector = false;
 bool helpPlugboard = false;
 
+std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 /* Function to map letters to integers */
 int getIndexInAlphabet(const std::string& letter) {
     if (letter.length() == 1) {
@@ -46,6 +48,20 @@ int getIndexInAlphabet(const std::string& letter) {
     }
     return -1;  // Indicate invalid input
 }
+
+bool isNumber(const std::string& s) {
+    return !s.empty() && s.find_first_not_of("0123456789") == std::string::npos;
+}
+
+std::string stringToInt(std::string str) {
+    int n;
+    //std::string letter(1, str);
+    n = std::stoi(str);
+    char alphaLetter = alphabet[n];
+    std::string finalLetter(1, alphaLetter);
+    return finalLetter;
+}
+
 
 int main(int argc, char** argv) {
 
@@ -103,7 +119,12 @@ int main(int argc, char** argv) {
 
                     // Add arguments to rotor params
                     for (int i = 0; i < arguments.size(); i++) {
-                        leftRotorParam.push_back(arguments[i]);
+                        if (isNumber(arguments[i])) {
+                            leftRotorParam.push_back(stringToInt(arguments[i]));
+                        }
+                        else {
+                            leftRotorParam.push_back(arguments[i]);
+                        }                  
                     }
                 }
                 break;
@@ -122,7 +143,12 @@ int main(int argc, char** argv) {
                     
                     // Add arguments to rotor params
                     for (int i = 0; i < arguments.size(); i++) {
-                        middleRotorParam.push_back(arguments[i]);
+                        if (isNumber(arguments[i])) {
+                            middleRotorParam.push_back(stringToInt(arguments[i]));
+                        }
+                        else {
+                            middleRotorParam.push_back(arguments[i]);
+                        }                  
                     }
                 }
                 break;
@@ -141,7 +167,12 @@ int main(int argc, char** argv) {
                     
                     // Add arguments to rotor params
                     for (int i = 0; i < arguments.size(); i++) {
-                        rightRotorParam.push_back(arguments[i]);
+                        if (isNumber(arguments[i])) {
+                            rightRotorParam.push_back(stringToInt(arguments[i]));
+                        }
+                        else {
+                            rightRotorParam.push_back(arguments[i]);
+                        }                  
                     }
                 }
                 break;
@@ -167,7 +198,12 @@ int main(int argc, char** argv) {
                     
                     // Add arguments to rotor params
                     for (int i = 0; i < arguments.size(); i++) {
-                        fourthRotorParam.push_back(arguments[i]);
+                        if (isNumber(arguments[i])) {
+                            fourthRotorParam.push_back(stringToInt(arguments[i]));
+                        }
+                        else {
+                            fourthRotorParam.push_back(arguments[i]);
+                        }                  
                     }
                 }
                 break;
